@@ -1,23 +1,18 @@
 package restaurante;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 
 public class Cardapio {
-    ItemCardapio[] itens = new ItemCardapio[0];
+    ArrayList<ItemCardapio>itens = new ArrayList<>();
 
     void adicionarItem(ItemCardapio item) {
         //implementar inclusão de item do cardápio
-        this.itens = Arrays.copyOf(this.itens, this.itens.length+1);
-        this.itens[itens.length-1] = item;
+        itens.add(item);
     }
 
     void removerItem(int indice) {
         //implementar exclusão de item do cardápio da posição informada
-        ItemCardapio[] novoItem = new ItemCardapio[itens.length-1];
-        System.arraycopy(itens, 0, novoItem, 0, indice);
-        System.arraycopy(itens, indice+1, novoItem, indice, novoItem.length-indice);
-
-        itens = novoItem;
+       itens.remove(indice);
     }
 
     void imprimirItensCardapio(double precoMinimo, double precoMaximo) {
